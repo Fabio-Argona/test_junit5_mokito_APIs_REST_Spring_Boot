@@ -36,7 +36,6 @@ public class UserServiceImpl implements UserService {
 
     public User create(UserDTO obj) {
         findByEmail(obj);
-
         return repository.save(mapper.map(obj, User.class));
     }
 
@@ -46,14 +45,18 @@ public class UserServiceImpl implements UserService {
         return repository.save(mapper.map(obj, User.class));
     }
 
+    @Override
+    public Void delete(Integer id) {
+        findById(id);
+        repository.deleteById(id);
+        return null;
+    }
+
     private void findByEmail(UserDTO obj) {
         Optional<User> user = repository.findByEmail(obj.getEmail());
         if(user.isPresent() && !user.get().getId().equals(obj.getId())) {
             throw new DataIntegrityViolationException("E-mail já cadastrado no sistema");
         }
     }
-
-
-
 
 }

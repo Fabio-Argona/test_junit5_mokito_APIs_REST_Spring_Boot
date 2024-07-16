@@ -10,6 +10,7 @@ public interface UserService {
     List<User> findAll();
     User create(UserDTO obj);
     User update(UserDTO obj);
+    Void delete(Integer id);
 
 
 }
