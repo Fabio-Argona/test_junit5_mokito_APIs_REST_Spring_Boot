@@ -61,7 +61,7 @@ class UserServiceImplTest {
 
         assertEquals(User.class, response.getClass());
         assertEquals(ID, response.getId());
-        assertEquals(NAME, response.getNome());
+        assertEquals(NAME, response.getName());
         assertEquals(EMAIL, response.getEmail());
     }
 
@@ -89,7 +89,7 @@ class UserServiceImplTest {
         assertEquals(User.class, response.get(INDEX).getClass());
 
         assertEquals(ID, response.get(INDEX).getId());
-        assertEquals(NAME, response.get(INDEX).getNome());
+        assertEquals(NAME, response.get(INDEX).getName());
         assertEquals(EMAIL, response.get(INDEX).getEmail());
         assertEquals(PASSWORD, response.get(INDEX).getPassword());
     }
@@ -103,7 +103,7 @@ class UserServiceImplTest {
         assertNotNull(response);
         assertEquals(User.class, response.getClass());
         assertEquals(ID, response.getId());
-        assertEquals(NAME, response.getNome());
+        assertEquals(NAME, response.getName());
         assertEquals(EMAIL, response.getEmail());
         assertEquals(PASSWORD, response.getPassword());
     }
@@ -122,7 +122,17 @@ class UserServiceImplTest {
     }
 
     @Test
-    void update() {
+    void whenUpdateThenReturnSuccess() {
+        when(repository.save(any())).thenReturn(user);
+
+        User response = service.update(userDTO);
+
+        assertNotNull(response);
+        assertEquals(User.class, response.getClass());
+        assertEquals(ID, response.getId());
+        assertEquals(NAME, response.getName());
+        assertEquals(EMAIL, response.getEmail());
+        assertEquals(PASSWORD, response.getPassword());
     }
 
     @Test
