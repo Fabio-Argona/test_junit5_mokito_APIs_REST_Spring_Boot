@@ -26,7 +26,7 @@ Neste projeto, você aprenderá a construir uma aplicação Spring Boot com uma 
 ## O que você aprenderá
 
 - Instalar e configurar as ferramentas corretas para iniciar um projeto Spring Boot do zero
-- Conceitos de Spring Boot 2.x.x
+- Conceitos de Spring Boot 3.3.1**
 - Java 17 LTS
 - JUnit 5
 - Mockito
