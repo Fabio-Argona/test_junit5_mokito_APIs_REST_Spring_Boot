@@ -1,9 +1,10 @@
 package com.testjunit.api.resources;
 
-import com.testjunit.api.domain.User;
+
 import com.testjunit.api.domain.dto.UserDTO;
 import com.testjunit.api.services.UserService;
-import org.jetbrains.annotations.NotNull;
+
+import jakarta.validation.constraints.NotNull;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
