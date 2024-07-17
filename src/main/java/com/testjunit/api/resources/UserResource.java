@@ -50,7 +50,7 @@ public class UserResource {
     }
 
     @DeleteMapping(value = ID)
-    private ResponseEntity<UserDTO> delete(@PathVariable Integer id) {
+    ResponseEntity<UserDTO> delete(@PathVariable Integer id) {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
