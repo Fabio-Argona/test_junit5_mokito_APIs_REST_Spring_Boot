@@ -3,6 +3,7 @@ package com.testjunit.api.resources;
 import com.testjunit.api.domain.User;
 import com.testjunit.api.domain.dto.UserDTO;
 import com.testjunit.api.services.UserService;
+import org.jetbrains.annotations.NotNull;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -44,7 +45,7 @@ public class UserResource {
     }
 
     @PutMapping(value = ID)
-    ResponseEntity<UserDTO>update(@PathVariable Integer id, @RequestBody UserDTO obj) {
+    ResponseEntity<UserDTO>update(@PathVariable Integer id, @RequestBody @NotNull UserDTO obj) {
         obj.setId(id);
         return ResponseEntity.ok().body(mapper.map(service.update(obj), UserDTO.class));
     }
